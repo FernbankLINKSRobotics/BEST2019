@@ -1,0 +1,365 @@
+# VEX EDR Python-Project
+import vex
+import sys
+
+#CONFIGURE START
+joystick1 = vex.Joystick()
+right         = vex.Motor(2)
+left          = vex.Motor(3)
+elevator      = vex.Motor(4)
+servo         = vex.Servo(5)
+auto          = vex.Motor(6)
+#CONFIGURE END
+
+joystick1.set_deadband(15)  
+
+while True:
+
+#---------------------------------
+#STANDARD (MANUAL COMMANDS)
+#---------------------------------
+
+#DRIVETRAIN CODE (FINAL)
+    
+    left.run(joystick1.axis2())
+    right.run(joystick1.axis3())
+    
+#ELEVATOR CODE (FINAL)
+    #DOWN
+    if joystick1.b7down(): 
+        elevator.run(25)
+    
+    #UP
+    if joystick1.b7up():
+        elevator.run(-85) 
+    
+#SERVO CODE (FINAL)
+    
+    if joystick1.b6up():
+        servo.position(100)
+        pass
+    
+    if joystick1.b6down():
+        servo.position(0)
+        pass
+    
+#ZERO / STOP ALL MOVEMENT (FINAL)
+
+    if joystick1.b7left():
+        elevator.run(0)
+        auto.run(0)
+        left.run(0)
+        right.run(0)
+    
+#---------------------------------
+        
+        
+        
+#---------------------------------
+        
+#NONSTANDARD CONTROL (AUTOMATIC BASIC COMMANDS)
+#---------------------------------
+
+#AIM ASSIST
+    """
+    if joystick1.b8up():
+        servo.position(0)
+        elevator.run(-100)
+        sys.sleep(5)
+        elevator.off
+        elevator.run(0)
+        
+        elevator.run(25)
+        sys.sleep(3)
+        elevator.off
+        elevator.run(0)
+        
+        pass
+    """
+#AUTO HOOK CODE (FINAL)
+    if joystick1.b5down():
+        auto.run(100)
+        sys.sleep(2.5)
+        auto.off
+        auto.run(0)
+        
+        auto.run(-30)
+        sys.sleep(.75)
+        auto.off
+        auto.run(0)    
+        pass
+    
+#---------------------------------
+
+
+
+#---------------------------------
+#TESTING CONTROLS (BETA COMMANDS)
+#---------------------------------
+#STRAIGHT DRIVE TEST   
+
+    if joystick1.b8up():
+        #DRIVE FORWARD - TURN LEFT (YELLOW and RED straight)
+    #Prerequisite:
+        left.run(15)
+        right.run(15)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+    #Part One
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+
+    #Part Two
+        left.run(-25)
+        right.run(25)
+        sys.sleep(5.0)
+        left.off
+        right.off
+        
+    #Part Three:
+        left.run(27.5) #FINAL DRIVE START
+        right.run(25)
+        #sys.sleep(3.9)
+        sys.sleep(2) #FINAL DRIVE END
+        left.off #MOTOR OFF
+        right.off #MOTOR OFF
+        
+        auto.run(-30) #AUTO HOOK DROP
+        sys.sleep(.75)
+        auto.off
+        auto.run(0) 
+        
+        pass
+    
+    
+    
+    
+    if joystick1.b8down():
+        #DRIVE FORWARD - TURN RIGHT (GREEN and BLUE straight)
+    #Prerequisite:
+        left.run(15)
+        right.run(15)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+    #Part One
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+        
+        left.run(-27.5)
+        right.run(-25)
+        sys.sleep(4)
+        right.off
+        left.off
+        
+        left.run(25)
+        right.run(5)
+        sys.sleep(1)
+        right.off
+        left.off
+
+    #Part Two
+        left.run(25)
+        right.run(-25)
+        sys.sleep(5.0)
+        left.off
+        right.off
+        
+    #Part Three:
+        left.run(27.5) #FINAL DRIVE START
+        right.run(25)
+        #sys.sleep(3.9)
+        sys.sleep(2) #FINAL DRIVE END
+        left.off #MOTOR OFF
+        right.off #MOTOR OFF
+        
+        auto.run(-30) #AUTO HOOK DROP
+        sys.sleep(.75)
+        auto.off
+        auto.run(0) 
+        
+        pass
+#---------------------------------
+
+
+
+pass
