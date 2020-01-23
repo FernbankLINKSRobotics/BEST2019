@@ -117,6 +117,6 @@ Disclaimer:
   README.
   
   For any commments/questions, email me at "ryanb44363@gmail.com" with the subject "BEST2019 Query"
-  + your name.
+  plus your name.
   
   Thank you.
