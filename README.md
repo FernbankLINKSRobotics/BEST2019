@@ -23,10 +23,13 @@ B. The autonomous mission was completed through the use of the
 "sys.sleep()" function, which simply tells the robot to stop all
 other processes besides which is running in the lines before it.
 
-For example:
 
+
+For example:
+#Make Sure to:
+#Only View this in RAW TEXT.
 #----------------------------------------------------------------------------------------------
-"""                                                                                           |
+"""                         |                                                                 |
 while True:                 |   To keep the program running (not just one time!).             |
                             |                                                                 |
   if joystick.b8up(True):   |   Starting the autonomous period.                               |
@@ -44,6 +47,8 @@ while True:                 |   To keep the program running (not just one time!)
     pass                    |   Telling the program to continue after this task is completed. |
 """                                                                                           |
 #----------------------------------------------------------------------------------------------
+
+
 
 Explained:
   This bit of code simply tells the robot to drive forward for 2 seconds, both drive motors at 
